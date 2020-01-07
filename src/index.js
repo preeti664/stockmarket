@@ -7,11 +7,12 @@ import { getData } from "./utils"
 import { TypeChooser } from "react-stockcharts/lib/helper";
 
 class ChartComponent extends React.Component {
+    //let data = getData();
+    //console.log("DDDATA", data);
 	componentDidMount() {
-         
-         
-			this.setState({ getData })
-	
+             getData().then(data => {
+                this.setState({ data })
+             })	
 	}
 	render() {
 		if (this.state == null) {
