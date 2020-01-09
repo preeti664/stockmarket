@@ -10,9 +10,8 @@ function parseData(parse) {
 		d.high = +d.high;
 		d.low = +d.low;
 		d.close = +d.close;
-		//d.volume = +d.volume;
-		d.shared_traded = +d.shared_traded;
-		d.turnover = +d.turnover;
+		d.volume = +d.volume;
+
 		return d;
 	};
 }
@@ -20,7 +19,7 @@ function parseData(parse) {
 const parseDate = timeParse("%Y-%m-%d");
 
 export function getData() {
-	const promiseMSFT = fetch("https://raw.githubusercontent.com/preeti664/stockmarket/master/data/data.tsv")
+	const promiseMSFT = fetch("https://raw.githubusercontent.com/preeti664/stockmarket/master/data/monthly_adjusted_MSFT.txt")
 		.then(response => response.text())
 		.then(data => tsvParse(data, parseData(parseDate)))
 	return promiseMSFT;
