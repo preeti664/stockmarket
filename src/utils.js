@@ -19,7 +19,7 @@ function parseData(parse) {
 const parseDate = timeParse("%Y-%m-%d");
 
 export function getData() {
-	const promiseMSFT = fetch("https://raw.githubusercontent.com/preeti664/stockmarket/master/data/monthly_adjusted_MSFT.txt")
+	const promiseMSFT = fetch("https://raw.githubusercontent.com/preeti664/stockmarket/master/data/daily_adjusted_MSFT.tsv")
 		.then(response => response.text())
 		.then(data => tsvParse(data, parseData(parseDate)))
 	return promiseMSFT;
